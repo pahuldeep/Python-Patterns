@@ -1,0 +1,18 @@
+animals:
+  - type: dog
+    breed: Golden Retriever
+    name: Buddy
+    age: 3
+    color: Golden
+
+  - type: cat
+    breed: Maine Coon
+    name: Whiskers
+    age: 2
+    color: "Brown Tabby"
+
+  - type: bird
+    species: Parrot
+    name: Polly
+    age: 1
+    color: Green

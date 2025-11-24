@@ -1,0 +1,25 @@
+{
+  "electronics": [
+    {
+      "type": "laptop",
+      "brand": "Dell",
+      "model": "XPS 13",
+      "screenSize": "13.3 inches",
+      "processor": "Intel Core i7"
+    },
+    {
+      "type": "smartphone",
+      "brand": "Apple",
+      "model": "iPhone 14",
+      "screenSize": "6.1 inches",
+      "storage": "128GB"
+    },
+    {
+      "type": "tablet",
+      "brand": "Samsung",
+      "model": "Galaxy Tab S8",
+      "screenSize": "11 inches",
+      "processor": "Snapdragon 8 Gen 1"
+    }
+  ]
+}

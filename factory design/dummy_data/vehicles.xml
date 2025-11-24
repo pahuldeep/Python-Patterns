@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<factoryData>
+  <vehicles>
+    <vehicle type="car">
+      <brand>Toyota</brand>
+      <model>Camry</model>
+      <year>2023</year>
+      <engine>2.5L Inline-4</engine>
+      <color>Silver</color>
+    </vehicle>
+    <vehicle type="motorcycle">
+      <brand>Harley-Davidson</brand>
+      <model>Street 750</model>
+      <year>2023</year>
+      <engine>750cc V-Twin</engine>
+      <color>Black</color>
+    </vehicle>
+    <vehicle type="truck">
+      <brand>Ford</brand>
+      <model>F-150</model>
+      <year>2023</year>
+      <engine>3.5L EcoBoost</engine>
+      <color>Blue</color>
+    </vehicle>
+  </vehicles>
+</factoryData>
