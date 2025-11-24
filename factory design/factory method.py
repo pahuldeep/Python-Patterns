@@ -30,43 +30,51 @@ class YAMLExtractor:
     def get_data(self):
         return self.data
 
-def dataextractor(file_path):
-    if file_path.endswith('.json'):
-        extractor = JSONExtractor
-    elif file_path.endswith('.xml'):
-        extractor = XMLExtractor
-    elif file_path.endswith('.yaml'):
-        extractor = YAMLExtractor
-    else:
-        raise ValueError("Invalid file extension")
-    return extractor(file_path)
+# THE FACTORY FACTORY - IT CREATES THE RIGHT FACTORY
+class DataExtractorFactory:
+    @staticmethod
+    def create_extractor(file_path):
+        if file_path.endswith('.json'):
+            return JSONExtractor(file_path)  # Returns a JSON factory
+        elif file_path.endswith('.xml'):
+            return XMLExtractor(file_path)   # Returns an XML factory  
+        elif file_path.endswith('.yaml'):
+            return YAMLExtractor(file_path)  # Returns a YAML factory
+        else:
+            raise ValueError("Invalid file extension")
 
 def extract_data(file_path):
-    factory_object = None
     try:
-        factory_object = dataextractor(file_path)
+        extractor = DataExtractorFactory.create_extractor(file_path)
+        return extractor
     except ValueError as e:
         print(e)
+        return None
 
-    return factory_object
 
 def main():
-    factory = extract_data('dummy_data/person.sql')
-    
-    factory = extract_data('factory design/dummy_data/electronics.json')
-    json_data = factory.get_data
+    # Each factory makes ONE type of thing - that's the power!
+    json_factory = extract_data('factory design/dummy_data/electronics.json')   # JSON Factory creates JSON data
+    if json_factory:
+        json_data = json_factory.get_data
+        print(f'Found: {len(json_data["electronics"])} items')
 
-    factory = extract_data('factory design/dummy_data/vehicles.xml')
-    xml_data = factory.get_data
 
-    factory = extract_data('factory design/dummy_data/animals.yaml')
-    yaml_data = factory.get_data
+    xml_factory = extract_data('factory design/dummy_data/vehicles.xml')    # XML Factory creates XML data  
+    if xml_factory:
+        xml_data = xml_factory.get_data
+        print(f'Found: {len(xml_data.findall(".//vehicle"))} items')
 
-    print(f'\nFound: {len(json_data)} items')
-    print(f'\nFound: {len(xml_data.findall(f'.//vehicles'))} items')
-    print(f'\nFound: {len(yaml_data)} items')
+
+    yaml_factory = extract_data('factory design/dummy_data/animals.yaml')   # YAML Factory creates YAML data
+    if yaml_factory:
+        yaml_data = yaml_factory.get_data
+        print(f'Found: {len(yaml_data["animals"])} items')
     print("*"*75)
 
+
+    # "The Factory Method is like a specialized worker who ONLY knows how to make ONE type of thing, 
+    #  so when you need that thing, you ask the right worker for it - not the general manager!"
     for i, device in enumerate(json_data["electronics"]):
         print(f"Device {i+1}:")
         for key, value in device.items():
