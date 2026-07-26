@@ -3,7 +3,6 @@
 from wizard.wizard import *
 from wizard.ork import *
 
-
 class WizardWorld:
     def __init__(self, name):
         print(self)

@@ -1,5 +1,6 @@
 from frog.frog_world import *
 from wizard.wizard_world import *
+from Developer.human_world import *
 
 # Game environment
 class GameEnvironment:
@@ -19,16 +20,3 @@ def validate_age(name):
         return (False, age)
     return (True, age)
 
-def main():
-    name = input("Hello. What's your name? ")
-    valid_input = False
-    while not valid_input:
-        valid_input, age = validate_age(name)
-    game = { True: FrogWorld, False: WizardWorld }[age < 18]
-
-    environment = GameEnvironment(game(name))
-    environment.play()
-
-
-if __name__ == '__main__':
-    main()

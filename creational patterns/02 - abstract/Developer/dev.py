@@ -1,4 +1,4 @@
-class Wizard:
+class Dev:
     def __init__(self, name):
         self.name = name
 
@@ -7,5 +7,5 @@ class Wizard:
 
     def interact_with(self, obstacle):
         act = obstacle.action()
-        msg = f'{self} the Wizard battles against {obstacle} and {act}!'
+        msg = f'{self}, Dev encounters {obstacle} I am {act}!'
         print(msg)

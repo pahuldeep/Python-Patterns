@@ -7,9 +7,7 @@ import math
 
 class Point:
     def __init__(self, x: float = 0, y: float = 0) -> None:
-        """ Initialize position: 
-        x: float x with default value
-        y: float y with default value """
+        """ Initialize position: """
         self.move(x, y)
 
     def move(self, x: float, y: float) -> None:

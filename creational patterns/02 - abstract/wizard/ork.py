@@ -1,4 +1,3 @@
-
 class Ork:
     def __str__(self):
         return 'an evil ork'

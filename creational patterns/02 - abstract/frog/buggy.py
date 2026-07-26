@@ -1,4 +1,3 @@
-
 class Bug:
     def __str__(self):
         return 'a bug'
